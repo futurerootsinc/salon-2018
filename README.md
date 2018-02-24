@@ -1,2 +1,1 @@
-# salon-2018
-Landing page for Salon 2018 fundraiser
+# 2018 Creative Cultivation Salon landing page
