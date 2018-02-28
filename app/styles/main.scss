@@ -103,21 +103,25 @@ a {
 
 	.navMenu {
 		display: flex;
-		justify-content: space-between;
+		justify-content: flex-end;
 		max-width: 60em;
 		margin: auto;
 		padding-bottom: 1em;
 		border-bottom: 1px solid rgba(255,255,255,0.5);
 
-		.header-links {
-			display: flex;
-			flex-direction: row;
+		@include desktop {
 			justify-content: space-between;
-			flex-grow: 1;
-			max-width: 15em;
-			font-size: 14px;
+		}
+
+		.header-links {
+			display: none;
 
 			@include desktop {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				flex-grow: 1;
+				font-size: 14px;
 				max-width: 30em;
 			}
 
@@ -132,7 +136,10 @@ a {
 		}
 
 		.header-btn {
-			margin: 10px 0;
+
+			@include desktop {
+				margin: 10px 0;
+			}
 		}
 	}
 }
