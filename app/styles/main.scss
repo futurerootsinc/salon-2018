@@ -12,27 +12,39 @@ $tablet-width: 768px;
 
 // Fonts
 @font-face {
-	font-family: "Futura";
-	src: url("../fonts/Futura-Medium.ttf");
+	font-family: "Roboto";
+	src: url("../fonts/Roboto-Regular.ttf");
 	font-style: normal;
 	font-weight: normal;
 }
 
 @font-face {
-	font-family: "Futura";
-	src: url("../fonts/Futura-MediumItalic.ttf");
-	font-style: italic;
-	font-weight: normal;
+	font-family: "Roboto";
+	src: url("../fonts/Roboto-Light.ttf");
+	font-style: normal;
+	font-weight: 300;
 }
 
 @font-face {
-	font-family: "Futura";
-	src: url("../fonts/Futura-Bold.ttf");
+	font-family: "Roboto";
+	src: url("../fonts/Roboto-Medium.ttf");
+	font-style: normal;
+	font-weight: 500;
+}
+
+@font-face {
+	font-family: "Roboto";
+	src: url("../fonts/Roboto-Bold.ttf");
 	font-style: normal;
 	font-weight: bold;
 }
 
 // General
+*{
+	&:focus {
+		outline: none;
+	}
+}
 html, body {
 	margin: 0;
 	background: #fff;
@@ -43,7 +55,7 @@ html, body {
 	display: flex;
 	flex-direction: column;
 	font-size: 16px;
-	font-family: 'Futura', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	font-weight: normal;
 	font-style: normal;
 	-webkit-text-size-adjust: 100%;
@@ -53,13 +65,25 @@ html, body {
 }
 
 a {
+	display: inline-block;
 	text-decoration: none;
+	color: white;
 	transition: all .15s ease;
+
+	&:hover, &:visited, &:focus {
+		color: white;
+	}
 
 	&:hover {
 		text-decoration: none;
 		transform: translateY(-1px);
 	}
+}
+
+hr {
+	border-color: #3B55E6;
+	border-width: 1px;
+	border-top: 0;
 }
 
 .browserupgrade {
@@ -103,6 +127,25 @@ a {
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
+	z-index: 1;
+}
+
+// Animation Helpers
+
+.bounce {
+	animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {
+		transform: translateY(0);
+	}
+	40% {
+		transform: translateY(-30px);
+	}
+	60% {
+		transform: translateY(-15px);
+	}
 }
 
 // Header
@@ -118,13 +161,13 @@ a {
 
 	.navMenu {
 		display: flex;
-		justify-content: flex-end;
+		justify-content: center;
 		max-width: 60em;
 		margin: auto;
-		border-bottom: 1px solid rgba(255,255,255,0.5);
 
 		@include desktop {
 			justify-content: space-between;
+			border-bottom: 1px solid rgba(255,255,255,0.5);
 		}
 
 		.header-links {
@@ -142,10 +185,7 @@ a {
 			a {
 				color: white;
 				text-transform: uppercase;
-
-				&:hover, &:visited, &:focus {
-					color: hsla(0,0%,100%,.5);
-				}
+				font-weight: bold;
 			}
 		}
 
@@ -155,38 +195,40 @@ a {
 	}
 }
 
-// Hero Section
+// Global Wrapper
 .globalContent {
-	overflow-x: hidden;
-	overflow-y: auto;
-	perspective: 2px;
+	overflow: auto;
 	flex-grow: 1;
 }
 
+// Hero Section
 .hero {
 	background-image: url(../images/hero-background.png);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
 	color: white;
-    min-height: 100vh;
+	min-height: 100vh;
 
 	@include desktop {
 		min-height: initial;
 		height: 60em;
 	}
 
+	.hero-overlay {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(to top, rgba(59,85,230,1) 0%,rgba(59,85,230,0.9) 75%,rgba(59,85,230,0.5) 100%);
+	}
+
 	.hero-inner {
 		padding-top: 100px;
 		padding-bottom: 100px;
-
-		.hero-logo {
-			max-width: 10em;
-
-			@include desktop {
-				max-width: 15em;
-			}
-		}
 
 		h1 {
 			font-size: 2em;
@@ -195,7 +237,7 @@ a {
 
 			@include desktop {
 				font-size: 3em;
-				margin: 1em auto;
+				margin: 0 auto 1em;
 			}
 		}
 
@@ -203,23 +245,57 @@ a {
 			margin-left: auto;
 			margin-right: auto;
 			font-size: 120%;
+			font-weight: 300;
 
 			@include desktop {
 				font-size: 150%;
+			}
+
+			&:nth-child(1) {
+				margin-bottom: 0;
+			}
+
+			&:nth-last-child(2) {
+				margin-top: 0;
+				font-size: 1em;
+			}
+		}
+
+		.hero-logo {
+			margin-top: 2em;
+			max-width: 10em;
+		}
+
+		.scrollDown-arrow {
+			display: inline-block;
+			position: absolute;
+			bottom: 5vh;
+			margin: auto;
+			left: 0;
+			right: 0;
+			z-index: 20;
+
+			@include desktop {
+				bottom: 15vh;
+			}
+
+			img {
+				width: 50px;
 			}
 		}
 	}
 }
 
+// About Section
 .about {
 	min-height: 75vh;
-    color: white;
-    background-color: white;
+	color: white;
+	background-color: white;
 
-    @include desktop {
-    	min-height: initial;
-    	height: 40em;
-    }
+	@include desktop {
+		min-height: initial;
+		height: 50em;
+	}
 
 	.about-background {
 		position: absolute;
@@ -235,6 +311,7 @@ a {
 
 	.about-inner {
 		text-align: left;
+		padding: 5em 0;
 		width: 40em;
 		z-index: 1;
 		transform: translateY(-5vh);
@@ -250,6 +327,94 @@ a {
 
 			&:last-child {
 				line-height: 1em;
+				margin-top: 3em;
+			}
+		}
+	}
+}
+
+// Speaker Section
+.speaker {
+	background-image: url(../images/water-background-01.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	transform: translateY(-20em);
+	padding-top: 20em;
+
+	.speaker-inner {
+		.row {
+			display: flex;
+			max-width: 60em;
+			margin: auto;
+			align-items: center;
+			flex-direction: column;
+			margin: 4em 0;
+
+			@include desktop {
+				flex-direction: row;
+			}
+
+			.speaker-image {
+				position: relative;
+				overflow: hidden;
+				max-width: 300px;
+				max-height: 300px;
+				border-radius: 50%;
+				margin-bottom: 2em;
+
+				span {
+					position: absolute;
+					top: 0;
+					left: 0;
+					right: 0;
+					background: rgba(59, 85, 230, 0.5);
+					width: 100%;
+					max-width: 300px;
+					height: 100%;
+					max-height: 300px;
+					border-radius: 50%;
+					z-index: 1;
+				}
+				img {
+					width: 100%;
+					border-radius: 50%;
+					transition:  all .3s ease;
+
+					&:hover {
+						transform: scale(1.5);
+					}
+				}
+
+				&:hover {
+					img {
+						transform: scale(1.1);
+					}
+				}
+			}
+
+			.speaker-content {
+				max-width: 40em;
+				text-align: left;
+				padding: 0 2em;
+				color: #3B55E6;
+
+				h2 {
+					margin: 0;
+					text-transform: uppercase;
+				}
+
+				h3 {
+					margin-top: 0;
+					color: #B9BED1;
+					text-transform: uppercase;
+					font-weight: normal;
+				}
+			}
+		}
+		.reverse-row {
+			@include desktop {
+				flex-direction: row-reverse;
 			}
 		}
 	}
