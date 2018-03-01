@@ -49,73 +49,115 @@
 	  <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->
 
-	<!-- header -->
-	<header class="globalHeader">
-		<nav class="navMenu">
-			<div class="header-links">
-				<a href="#program" title="Program">Program</a>
-				<a href="#sponsors" title="Sponsors">Sponsors</a>
-				<a href="#contact" title="Contact">Contact</a>
-			</div>
-			<div class="header-btn btn">
-				<a href="#tickets" title="Tickets">Tickets</a>
-			</div>
-		</nav>
-	</header>
-	<!-- /header -->
-
 	<!-- global content wrapper -->
-	<div class="globalContent">
+	<div class="parallax">
+
 		<!-- hero section -->
-		<section class="section hero">
-			<div class="hero-overlay"></div>
+		<section class="section hero parallax__group">
+
+			<!-- header -->
+			<header class="globalHeader">
+				<nav class="navMenu">
+					<div class="header-links">
+						<a href="#program" title="Program">Program</a>
+						<a href="#sponsors" title="Sponsors">Sponsors</a>
+						<a href="#contact" title="Contact">Contact</a>
+					</div>
+					<div class="header-btn btn">
+						<a href="#tickets" title="Tickets">Tickets</a>
+					</div>
+				</nav>
+			</header>
+			<!-- /header -->
+
+			<!-- hero section overlay -->
+			<div class="overlay hero-overlay"></div>
+			<!-- /hero section overlay -->
+
+			<!-- hero section content -->
 			<div class="section-inner hero-inner">
-				<p data-aos="fade-up" data-aos-delay="200">Saturday, March 31, 2018</p>
+				<a href="http://dublab.com/"><img src="images/logo-dublab.png" class="hero-logo" alt="dublab logo" data-aos="fade-up" data-aos-delay="200"></a>
 				<h1 data-aos="fade-up" data-aos-delay="400">2018 CREATIVE CULTIVATION SALON</h1>
-				<p data-aos="fade-up" data-aos-delay="600"e><strong>6-10 PM - NAVEL LA</strong><br><small>1611 S Hope Street, Los Angeles, CA 90015</small></p>
-				<a href="http://dublab.com/"><img src="images/dublablogo.png" class="hero-logo" alt="dublab logo" data-aos="fade-up" data-aos-delay="800"></a>
-				<p data-aos="fade-up" data-aos-delay="800"><small>Please note, this is a 21+ event.</small></p>
-				<a data-aos="fade-up" data-aos-delay="1200" class="scrollDown-arrow bounce" data-aos-once href="#about"><img src="images/down-arrow.svg" alt="SCROLL DOWN"></a>
+				<div data-aos="fade-up" data-aos-delay="600">
+					<span class="icon"><img src="images/icon-calendar.svg" alt="Date"></span>
+					<p>Saturday, March 31, 2018<br>6-10 PM</p>
+				</div>
+				<div data-aos="fade-up" data-aos-delay="600"e>
+					<span class="icon"><img src="images/icon-location.svg" alt="Location"></span>
+					<p>NAVEL LA<br>1611 S Hope Street, Los Angeles, CA 90015</p>
+				</div>
+				<div data-aos="fade-up" data-aos-delay="800" class="btn">
+					<a href="#tickets" title="Tickets">Tickets</a>
+				</div>
+				<p data-aos="fade-up" data-aos-delay="800"><small>Please note, this event is 21+.</small></p>
+				<a data-aos="fade-down" data-aos-delay="1200" data-aos-offset="-200" class="scrollDown-arrow bounce" data-aos-once href="#about"><img src="images/icon-arrow.svg" alt="SCROLL DOWN"></a>
 			</div>
+			<!-- /hero section content -->
+
 		</section>
 		<!-- /hero section -->
 
-		<section id="about" class="section about">
-			<div class="about-background"></div>
-			<div class="section-inner about-inner">
-				<p data-aos="fade-up" data-aos-delay="200">On Saturday, March 31, 2018, join DUBLAB for a vibrant evening amongst the most creative Angelenos for the annual Creative Cultivation Salon. Experience live music, eclectic DJ sets, visual and sound art activations, while also enjoying specialty drinks and bites at an exclusive location in Los Angeles.</p>
-				<p data-aos="fade-up" data-aos-delay="200">This year’s water theme will be the powerful current channeling inspiration, creativity, and nourishing support for dublab’s efforts in progressive radio programming.</p>
-				<p data-aos="fade-up" data-aos-delay="400"><small>Proceeds from the Creative Cultivation Salon will go toward supporting dublab’s broader mission in freeform radio and sustaining programming which promotes progressive music, arts, and culture including inspirational broadcasts, exciting events, and improved technology initiatives.</small></p>
-			</div>
-		</section>
+		<!-- abour section -->
+		<section id="about" class="section about parallax__group">
 
-		<section class="section speaker">
-			<div class="section-inner speaker-inner">
-				<div id="program" class="row">
-					<div class="speaker-image">
-						<span class="overlay"></span>
-						<img src="images/kim_gordon.jpg" alt="Kim Gordon">
+			<!-- about section background -->
+			<div class="about-background"></div>
+			<!-- /about section background -->
+
+			<!-- about section content -->
+			<div class="section-inner about-inner">
+				<h2>ABOUT</h2>
+				<p>On Saturday, <strong>March 31, 2018</strong>, join DUBLAB for a vibrant evening amongst the most creative Angelenos for the annual Creative Cultivation Salon. Experience live music, eclectic DJ sets, visual and sound art activations, while also enjoying specialty drinks and bites at an exclusive location in Los Angeles.</p>
+				<p><em>This year’s water theme will be the powerful current channeling inspiration, creativity, and nourishing support for dublab’s efforts in progressive radio programming.</em></p>
+				<p>Proceeds from the Creative Cultivation Salon will go toward supporting dublab’s broader mission in freeform radio and sustaining programming which promotes progressive music, arts, and culture including inspirational broadcasts, exciting events, and improved technology initiatives.</p>
+			</div>
+			<!-- /about section content -->
+
+		</section>
+		<!-- /about section -->
+
+		<!-- speaker section -->
+		<section class="section speaker parallax__group">
+
+			<!-- speaker section background -->
+			<div class="parallax__layer parallax__layer--back background">
+				<img src="images/background-water-01.png" alt="">
+			</div>
+			<!-- /speaker section background -->
+
+			<!-- speaker section content -->
+			<div class="parallax__layer parallax__layer--base">
+				<div class="section-inner speaker-inner">
+					<div id="program" class="row">
+						<div class="speaker-image">
+							<span class="overlay"></span>
+							<img src="images/people-kim_gordon.jpg" alt="Kim Gordon">
+						</div>
+						<div class="speaker-content">
+							<h2>Kim Gordon</h2>
+							<h3>GUEST OF HONOR</h3>
+							<p>Kim Gordon has been writing and performing experimental rock music for more than three decades, in addition to her work as a visual artist, writer, and designer. In 1981, she co-founded the band Sonic Youth, for which she sang and played guitar and bass. Kim's book of essays, Is It My Body?: Selected Texts, was published in 2014 on Sternberg Press.  Her memoir, Girl In A Band, was published in 2015 to international acclaim and her visual art continues to be exhibited worldwide.  Kim continues to perform solo improvisational shows as well as with 'Body/Head', a guitar duo with Bill Nace.</p>
+						</div>
 					</div>
-					<div class="speaker-content">
-						<h2>Kim Gordon</h2>
-						<h3>GUEST OF HONOR</h3>
-						<p>Kim Gordon has been writing and performing experimental rock music for more than three decades, in addition to her work as a visual artist, writer, and designer. In 1981, she co-founded the band Sonic Youth, for which she sang and played guitar and bass. Kim's book of essays, Is It My Body?: Selected Texts, was published in 2014 on Sternberg Press.  Her memoir, Girl In A Band, was published in 2015 to international acclaim and her visual art continues to be exhibited worldwide.  Kim continues to perform solo improvisational shows as well as with 'Body/Head', a guitar duo with Bill Nace.</p>
-					</div>
-				</div>
-				<hr>
-				<div class="row reverse-row">
-					<div class="speaker-image">
-						<span class="overlay"></span>
-						<img src="images/saul_williams.jpg" alt="Saul Williams">
-					</div>
-					<div class="speaker-content">
-						<h2>Saul Williams </h2>
-						<h3>KEYNOTE SPEAKER</h3>
-						<p>Williams has been breaking ground since his debut album, Amethyst Rock Star, was released in 2001 and executive produced by Rick Rubin. After gaining global fame for his poetry and writings at the turn of the century, Williams has performed in over 30 countries and read in over 300 universities, with invitations that have spanned from the White House, the Sydney Opera House, Lincoln Center, The Louvre, The Getty Center, Queen Elizabeth Hall, to countless, villages, townships, community centers, and prisons across the world. The Newburgh, New York native gained a BA from Morehouse and an MFA from Tisch, and has gone on to record with Nine Inch Nails and Allen Ginsburg, as well as countless film and television appearances.</p>
+					<hr>
+					<div class="row reverse-row">
+						<div class="speaker-image">
+							<span class="overlay"></span>
+							<img src="images/people-saul_williams.jpg" alt="Saul Williams">
+						</div>
+						<div class="speaker-content">
+							<h2>Saul Williams </h2>
+							<h3>KEYNOTE SPEAKER</h3>
+							<p>Williams has been breaking ground since his debut album, Amethyst Rock Star, was released in 2001 and executive produced by Rick Rubin. After gaining global fame for his poetry and writings at the turn of the century, Williams has performed in over 30 countries and read in over 300 universities, with invitations that have spanned from the White House, the Sydney Opera House, Lincoln Center, The Louvre, The Getty Center, Queen Elizabeth Hall, to countless, villages, townships, community centers, and prisons across the world. The Newburgh, New York native gained a BA from Morehouse and an MFA from Tisch, and has gone on to record with Nine Inch Nails and Allen Ginsburg, as well as countless film and television appearances.</p>
+						</div>
 					</div>
 				</div>
 			</div>
+			<!-- /speaker section content -->
+
 		</section>
+		<!-- /speaker section -->
+
 	</div>
 	<!-- /global content wrapper -->
 
@@ -123,7 +165,6 @@
 	<footer class="globalFooter">
 	</footer>
 	<!-- /footer -->
-
 
 	<!-- build:js scripts/vendor.js -->
 	<!-- bower:js -->

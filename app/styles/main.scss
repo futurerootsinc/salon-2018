@@ -39,6 +39,7 @@ $tablet-width: 768px;
 	font-weight: bold;
 }
 
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700');
 // General
 *{
 	&:focus {
@@ -49,11 +50,6 @@ html, body {
 	margin: 0;
 	background: #fff;
 	background-color: #fff;
-	overflow: auto;
-	// min-height: 100%;
-	// height: 100%;
-	display: flex;
-	flex-direction: column;
 	font-size: 16px;
 	font-family: 'Roboto', sans-serif;
 	font-weight: normal;
@@ -62,6 +58,11 @@ html, body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Roboto Condensed', sans-serif;
+	font-weight: 400;
 }
 
 a {
@@ -80,6 +81,12 @@ a {
 	}
 }
 
+img {
+	display: block;
+	margin: auto;
+	width: 100%;
+}
+
 hr {
 	border-color: #3B55E6;
 	border-width: 1px;
@@ -94,11 +101,14 @@ hr {
 }
 
 .btn {
+	font-family: 'Roboto Condensed', sans-serif;
 	min-width: 10em;
-    height: 40px;
+	max-width: 12em;
+	height: 40px;
 	background-color: #EEC5A8;
 	line-height: 40px;
 	text-align: center;
+	margin: 1em auto;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
 	border-radius: 20px;
     transition: all .15s ease;
@@ -116,10 +126,17 @@ hr {
 	}
 }
 
+.icon {
+	img {
+		max-width: 30px;
+		width: 100%;
+	}
+}
+
 .section {
 	position: relative;
 	display: flex;
-    align-items: center;
+	align-items: center;
 }
 
 .section-inner {
@@ -130,8 +147,76 @@ hr {
 	z-index: 1;
 }
 
-// Animation Helpers
+.background, .overlay {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 100%;
+	height: 100%;
+}
 
+/* Parallax base styles
+  --------------------------------------------- */
+
+.parallax {
+	height: 500px; /* fallback for older browsers */
+	height: 100vh;
+	overflow-x: hidden;
+	overflow-y: auto;
+	-webkit-perspective: 300px;
+	perspective: 300px;
+	scroll-behavior: smooth;
+}
+
+.parallax__group {
+	position: relative;
+	height: 500px; /* fallback for older browsers */
+	height: 100vh;
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+
+.parallax__layer {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.parallax__layer--fore {
+	-webkit-transform: translateZ(90px) scale(.7);
+	transform: translateZ(90px) scale(.7);
+	z-index: 1;
+}
+
+.parallax__layer--base {
+	-webkit-transform: translateZ(0);
+	transform: translateZ(0);
+	z-index: 4;
+}
+
+.parallax__layer--back {
+	-webkit-transform: translateZ(-300px) scale(2);
+	transform: translateZ(-300px) scale(2);
+	z-index: 3;
+}
+
+.parallax__layer--deep {
+	-webkit-transform: translateZ(-600px) scale(3);
+	transform: translateZ(-600px) scale(3);
+	z-index: 2;
+}
+
+.parallax__group {
+	-webkit-transition: -webkit-transform 0.5s;
+	transition: transform 0.5s;
+}
+
+// Animation Helpers
 .bounce {
 	animation: bounce 2s infinite;
 }
@@ -150,14 +235,19 @@ hr {
 
 // Header
 .globalHeader {
-	position: absolute;
-	left: 0;
-	top: 0;
-	right: 0;
-	width: 90%;
-	margin: auto;
-	z-index: 10;
-	line-height: 4em;
+	display: none;
+
+	@include desktop {
+		position: absolute;
+		display: block;
+		left: 0;
+		right: 0;
+		top: 1em;
+		width: 90%;
+		margin: auto;
+		z-index: 2;
+		line-height: 4em;
+	}
 
 	.navMenu {
 		display: flex;
@@ -171,99 +261,79 @@ hr {
 		}
 
 		.header-links {
-			display: none;
 
 			@include desktop {
 				display: flex;
 				flex-direction: row;
 				justify-content: space-between;
 				flex-grow: 1;
-				font-size: 14px;
-				max-width: 25em;
+				font-size: 16px;
+				max-width: 20em;
 			}
 
 			a {
+				font-family: 'Roboto Condensed', sans-serif;
 				color: white;
 				text-transform: uppercase;
-				font-weight: bold;
+				font-weight: 400;
 			}
 		}
 
 		.header-btn {
-			margin: 0.75em 0;
+			margin: 0.75em 0 1.75em;
 		}
 	}
-}
-
-// Global Wrapper
-.globalContent {
-	overflow: auto;
-	flex-grow: 1;
 }
 
 // Hero Section
 .hero {
-	background-image: url(../images/hero-background.png);
+	background-image: url(../images/background-water-hero.jpg);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
 	color: white;
-	min-height: 100vh;
-
-	@include desktop {
-		min-height: initial;
-		height: 60em;
-	}
 
 	.hero-overlay {
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		width: 100%;
-		height: 100%;
 		background: linear-gradient(to top, rgba(59,85,230,1) 0%,rgba(59,85,230,0.9) 75%,rgba(59,85,230,0.5) 100%);
+		z-index: -1;
 	}
 
 	.hero-inner {
-		padding-top: 100px;
-		padding-bottom: 100px;
+		z-index: 1;
 
 		h1 {
 			font-size: 2em;
-			margin-top: 0.5em;
-			margin-bottom: 1em;
 
 			@include desktop {
 				font-size: 3em;
-				margin: 0 auto 1em;
 			}
 		}
 
 		p {
-			margin-left: auto;
-			margin-right: auto;
-			font-size: 120%;
+			margin: 0 auto 2em;
+			font-size: 110%;
 			font-weight: 300;
 
 			@include desktop {
-				font-size: 150%;
+				font-size: 120%;
 			}
 
-			&:nth-child(1) {
-				margin-bottom: 0;
+			&:nth-child(3) {
+				margin-top: 0;
 			}
 
 			&:nth-last-child(2) {
-				margin-top: 0;
 				font-size: 1em;
 			}
 		}
 
 		.hero-logo {
-			margin-top: 2em;
-			max-width: 10em;
+			max-width: 12em;
+
+			@include desktop {
+				max-width: 16em;
+			}
+
 		}
 
 		.scrollDown-arrow {
@@ -276,7 +346,7 @@ hr {
 			z-index: 20;
 
 			@include desktop {
-				bottom: 15vh;
+				bottom: 10vh;
 			}
 
 			img {
@@ -288,13 +358,11 @@ hr {
 
 // About Section
 .about {
-	min-height: 75vh;
 	color: white;
 	background-color: white;
 
 	@include desktop {
-		min-height: initial;
-		height: 50em;
+		font-size: 120%;
 	}
 
 	.about-background {
@@ -310,7 +378,7 @@ hr {
 	}
 
 	.about-inner {
-		text-align: left;
+		text-align: center;
 		padding: 5em 0;
 		width: 40em;
 		z-index: 1;
@@ -321,26 +389,24 @@ hr {
 		}
 
 		p {
-			@include desktop {
-				font-size: 120%;
-			}
-
-			&:last-child {
-				line-height: 1em;
-				margin-top: 3em;
-			}
+			font-weight: 300;
 		}
 	}
 }
 
 // Speaker Section
 .speaker {
-	background-image: url(../images/water-background-01.png);
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: contain;
-	transform: translateY(-20em);
-	padding-top: 20em;
+	// background-image: url(../images/background-water-01.png);
+	// background-repeat: no-repeat;
+	// background-position: center;
+	// background-size: contain;
+
+	.background {
+		img {
+			max-width: 600px;
+		}
+
+	}
 
 	.speaker-inner {
 		.row {
@@ -423,3 +489,5 @@ hr {
 		}
 	}
 }
+
+
