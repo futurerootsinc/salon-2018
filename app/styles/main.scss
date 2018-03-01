@@ -88,7 +88,8 @@ img {
 }
 
 hr {
-	border-color: #3B55E6;
+	max-width: 30em;
+    width: 100%;
 	border-width: 1px;
 	border-top: 0;
 }
@@ -158,62 +159,69 @@ hr {
 	height: 100%;
 }
 
+.background {
+	img {
+		max-width: 600px;
+	}
+}
+
 /* Parallax base styles
   --------------------------------------------- */
+@include desktop {
+	.parallax {
+		height: 500px; /* fallback for older browsers */
+		height: 100vh;
+		overflow-x: hidden;
+		overflow-y: auto;
+		-webkit-perspective: 300px;
+		perspective: 300px;
+		scroll-behavior: smooth;
+	}
 
-.parallax {
-	height: 500px; /* fallback for older browsers */
-	height: 100vh;
-	overflow-x: hidden;
-	overflow-y: auto;
-	-webkit-perspective: 300px;
-	perspective: 300px;
-	scroll-behavior: smooth;
-}
+	.parallax__group {
+		position: relative;
+		height: 500px; /* fallback for older browsers */
+		height: 100vh;
+		-webkit-transform-style: preserve-3d;
+		transform-style: preserve-3d;
+	}
 
-.parallax__group {
-	position: relative;
-	height: 500px; /* fallback for older browsers */
-	height: 100vh;
-	-webkit-transform-style: preserve-3d;
-	transform-style: preserve-3d;
-}
+	.parallax__layer {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
 
-.parallax__layer {
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-}
+	.parallax__layer--fore {
+		-webkit-transform: translateZ(90px) scale(.7);
+		transform: translateZ(90px) scale(.7);
+		z-index: 1;
+	}
 
-.parallax__layer--fore {
-	-webkit-transform: translateZ(90px) scale(.7);
-	transform: translateZ(90px) scale(.7);
-	z-index: 1;
-}
+	.parallax__layer--base {
+		-webkit-transform: translateZ(0);
+		transform: translateZ(0);
+		z-index: 4;
+	}
 
-.parallax__layer--base {
-	-webkit-transform: translateZ(0);
-	transform: translateZ(0);
-	z-index: 4;
-}
+	.parallax__layer--back {
+		-webkit-transform: translateZ(-300px) scale(2);
+		transform: translateZ(-300px) scale(2);
+		z-index: 3;
+	}
 
-.parallax__layer--back {
-	-webkit-transform: translateZ(-300px) scale(2);
-	transform: translateZ(-300px) scale(2);
-	z-index: 3;
-}
+	.parallax__layer--deep {
+		-webkit-transform: translateZ(-600px) scale(3);
+		transform: translateZ(-600px) scale(3);
+		z-index: 2;
+	}
 
-.parallax__layer--deep {
-	-webkit-transform: translateZ(-600px) scale(3);
-	transform: translateZ(-600px) scale(3);
-	z-index: 2;
-}
-
-.parallax__group {
-	-webkit-transition: -webkit-transform 0.5s;
-	transition: transform 0.5s;
+	.parallax__group {
+		-webkit-transition: -webkit-transform 0.5s;
+		transition: transform 0.5s;
+	}
 }
 
 // Animation Helpers
@@ -287,15 +295,16 @@ hr {
 
 // Hero Section
 .hero {
-	background-image: url(../images/background-water-hero.jpg);
+	background-image: url(../images/background-water-02.png);
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: cover;
+	background-size: contain;
 	color: white;
+	min-height: 100vh;
+	z-index: 5;
 
 	.hero-overlay {
-		background: linear-gradient(to top, rgba(59,85,230,1) 0%,rgba(59,85,230,0.9) 75%,rgba(59,85,230,0.5) 100%);
-		z-index: -1;
+		background: linear-gradient(to top, #3b55e6 0%, hsla(231, 77%, 57%, 0.95) 40%, rgba(238, 197, 168, 0.85) 100%);
 	}
 
 	.hero-inner {
@@ -379,7 +388,7 @@ hr {
 
 	.about-inner {
 		text-align: center;
-		padding: 5em 0;
+		padding: 15em 0;
 		width: 40em;
 		z-index: 1;
 		transform: translateY(-5vh);
@@ -396,12 +405,20 @@ hr {
 
 // Speaker Section
 .speaker {
-	// background-image: url(../images/background-water-01.png);
-	// background-repeat: no-repeat;
-	// background-position: center;
-	// background-size: contain;
+	z-index: 3;
+	min-height: 100vh;
+
+	hr {
+		border-color: #3B55E6;
+	}
 
 	.background {
+		transform: translateY(-25em);
+
+		@include desktop {
+			transform: translateZ(-600px) scale(3);
+		}
+
 		img {
 			max-width: 600px;
 		}
@@ -412,10 +429,9 @@ hr {
 		.row {
 			display: flex;
 			max-width: 60em;
-			margin: auto;
 			align-items: center;
 			flex-direction: column;
-			margin: 4em 0;
+			margin: 4em auto;
 
 			@include desktop {
 				flex-direction: row;
@@ -450,10 +466,6 @@ hr {
 					width: 100%;
 					border-radius: 50%;
 					transition:  all .3s ease;
-
-					&:hover {
-						transform: scale(1.5);
-					}
 				}
 
 				&:hover {
@@ -465,9 +477,13 @@ hr {
 
 			.speaker-content {
 				max-width: 40em;
-				text-align: left;
+				text-align: center;
 				padding: 0 2em;
 				color: #3B55E6;
+
+				@include desktop {
+					text-align: left;
+				}
 
 				h2 {
 					margin: 0;
@@ -480,11 +496,144 @@ hr {
 					text-transform: uppercase;
 					font-weight: normal;
 				}
+
+				p {
+					text-align: left;
+				}
 			}
 		}
 		.reverse-row {
 			@include desktop {
 				flex-direction: row-reverse;
+			}
+		}
+	}
+}
+
+// Music Section
+.music {
+	z-index: 4;
+
+	.music-background {
+		position: absolute;
+		top: 0;
+		background: linear-gradient(rgba(238, 198, 170, 0.8) 0%, rgba(59, 85, 230, 0.8) 100%);
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		transform: skewY(-5deg);
+		transform-origin: 0;
+		z-index: 0;
+	}
+
+	hr {
+		border-color: white;
+	}
+
+	.music-inner {
+		color: white;
+		padding: 4em 0 10em;
+
+		h2 {
+			font-size: 2em;
+			margin: 2em auto;
+		}
+
+		.row {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+
+
+			@include desktop {
+				flex-direction: row;
+			}
+
+			.music-person {
+				margin-bottom: 2em;
+				width: 20em;
+
+				.music-person-image {
+					position: relative;
+					overflow: hidden;
+					max-width: 200px;
+					max-height: 200px;
+					border-radius: 50%;
+					margin: auto;
+
+					span {
+						position: absolute;
+						top: 0;
+						left: 0;
+						right: 0;
+						background: rgba(59, 85, 230, 0.5);
+						width: 100%;
+						max-width: 200px;
+						height: 100%;
+						max-height: 200px;
+						border-radius: 50%;
+						z-index: 1;
+					}
+					img {
+						width: 100%;
+						border-radius: 50%;
+						transition: all .3s ease;
+					}
+
+					&:hover {
+						img {
+							transform: scale(1.1);
+						}
+					}
+				}
+
+				.icon-plus {
+					display: none;
+				}
+
+				h3 {
+					text-transform: capitalize;
+
+				}
+				p {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+// Food Section
+.food {
+
+
+	.food-inner {
+		padding: 5em 0;
+
+		h2 {
+			color: #3B55E6;
+		}
+
+		.row {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: space-around;
+
+			@include desktop {
+			}
+
+			.food-vendor {
+				display: inline-block;
+				width: 10em;
+
+				h3 {
+
+					a {
+
+					color: #B9BED1;
+					}
+				}
 			}
 		}
 	}
