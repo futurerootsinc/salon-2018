@@ -1,4 +1,24 @@
 jQuery(document).ready(function($) {
+	$.fn.extend({
+    toggleText: function(a, b){
+        return this.text(this.text() == b ? a : b);
+    }
+});
+
+	$('.icon-plus').on('click', function() {
+
+		if ($(this).parent().hasClass('open')) {
+			$('.music-person').removeClass('open').addClass('close');
+			$(this).html('+');
+		} else {
+			$('.music-person').removeClass('open').addClass('close');
+			$('.icon-plus').html('+');
+
+			$(this).parent().removeClass('close').addClass('open');
+			$(this).html('-');
+		}
+
+	});
 
 	// Initiate AOS animatin library
 	AOS.init({

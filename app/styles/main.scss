@@ -484,13 +484,15 @@ hr {
 		h2 {
 			font-size: 2em;
 			margin: 2em auto;
+			transition: 0.3 ease-in;
 		}
 
 		.row {
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
-			align-items: center;
+			align-items: start;
+			transition: 0.3 ease-in;
 
 
 			@include desktop {
@@ -537,7 +539,9 @@ hr {
 				}
 
 				.icon-plus {
-					display: none;
+					&:hover {
+						cursor: pointer;
+					}
 				}
 
 				h3 {
@@ -545,7 +549,27 @@ hr {
 
 				}
 				p {
+					text-align: justify;
+					transition: 0.3s ease;
 					display: none;
+					visibility: hidden;
+					opacity: 0;
+				}
+
+				&.open {
+					p {
+						display: block;
+						visibility: visible;
+						opacity: 1;
+					}
+				}
+
+				&.close {
+					p {
+						display: none;
+						visibility: hidden;
+						opacity: 0;
+					}
 				}
 			}
 		}
@@ -594,6 +618,7 @@ hr {
 				}
 
 				h3 {
+					margin-top: 0;
 
 					a {
 
@@ -668,9 +693,7 @@ hr {
 				}
 
 				h3 {
-
 					a {
-
 					color: #B9BED1;
 					}
 				}
@@ -721,6 +744,7 @@ hr {
 					}
 
 					h3 {
+						margin-top: 0;
 
 						a {
 						color: #B9BED1;
@@ -736,7 +760,7 @@ hr {
 			padding: 2em;
 			border-radius: 10px;
 			box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
-			background: #efc5a8;
+			background: linear-gradient( rgba(238, 198, 170, 0.8) 0%, rgba(59, 85, 230, 0.5) 100%);
 
 			@include desktop {
 				width: 50%;
