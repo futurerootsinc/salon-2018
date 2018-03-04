@@ -751,6 +751,40 @@ hr {
 						}
 					}
 				}
+              
+              .sponsor-vendor-top {
+					display: inline-block;
+					width: 20em;
+
+					.sponsor-vendor-image {
+						height: 200px;
+						position: relative;
+
+						img {
+							position: absolute;
+							top: 0;
+							bottom: 0;
+							width: 80%;
+							left: 0;
+							right: 0;
+						}
+
+						a:hover {
+							transform: none;
+						}
+					}
+
+					h3 {
+						margin-top: 0;
+
+						a {
+						color: #B9BED1;
+						}
+					}
+				}
+              
+              
+              
 			}
 		}
 
