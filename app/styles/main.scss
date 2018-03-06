@@ -6,7 +6,7 @@ $tablet-width: 768px;
 
 @mixin desktop {
   @media (min-width: #{$tablet-width}) {
-    @content;
+	@content;
   }
 }
 
@@ -41,7 +41,7 @@ a {
 	display: inline-block;
 	text-decoration: none;
 	color: white;
-	transition: all .15s ease;
+	transition: all 0.3s ease-in;
 
 	&:hover, &:visited, &:focus {
 		color: white;
@@ -62,7 +62,7 @@ img {
 hr {
 	display: none;
 	max-width: 30em;
-    width: 100%;
+	width: 100%;
 	border-width: 1px;
 	border-top: 0;
 }
@@ -85,7 +85,7 @@ hr {
 	margin: 1em auto;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
 	border-radius: 20px;
-    transition: all .15s ease;
+	transition: all 0.3s ease-in;
 
 	&:hover {
 		transform: translateY(-1px);
@@ -222,8 +222,8 @@ hr {
 	}
 
 	.hero-inner {
-        padding-top: 5em;
-        padding-bottom: 5em;
+		padding-top: 5em;
+		padding-bottom: 5em;
 
 		h1 {
 			font-size: 1.7em;
@@ -396,7 +396,7 @@ hr {
 				img {
 					width: 100%;
 					border-radius: 50%;
-					transition:  all .3s ease;
+					transition: all 0.3s ease-in;
 				}
 
 				&:hover {
@@ -485,16 +485,15 @@ hr {
 		h2 {
 			font-size: 2em;
 			margin: 2em auto;
-			transition: 0.3 ease-in;
+			transition: all 0.3s ease-in;
 		}
 
 		.row {
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
-			align-items: start;
-			transition: 0.3 ease-in;
-
+			align-items: center;
+			transition: all 0.3s ease-in;
 
 			@include desktop {
 				flex-direction: row;
@@ -529,7 +528,7 @@ hr {
 					img {
 						width: 100%;
 						border-radius: 50%;
-						transition: all .3s ease;
+						transition: all 0.3s ease-in;
 					}
 
 					&:hover {
@@ -540,8 +539,21 @@ hr {
 				}
 
 				.icon-plus {
+					position: relative;
+					top: 0;
+					border: 1px solid white;
+					border-radius: 100%;
+					display: block;
+					margin: auto;
+					width: 1em;
+					height: 1em;
+					line-height: 1em;
+					font-size: 2em;
+					transition: all 0.3s ease-in;
+
 					&:hover {
 						cursor: pointer;
+						transform: translateY(-1px);
 					}
 				}
 
@@ -550,8 +562,8 @@ hr {
 
 				}
 				p {
-					text-align: justify;
-					transition: 0.3s ease;
+					text-align: left;
+					transition: all 0.3s ease-in;
 					display: none;
 					visibility: hidden;
 					opacity: 0;
@@ -581,7 +593,11 @@ hr {
 .food {
 
 	.food-inner {
-		padding: 5em 0 15em;
+		padding: 5em 0 10em;
+
+		@include desktop {
+			padding-bottom: 15em;
+		}
 
 		h2 {
 			color: #3B55E6;
@@ -620,6 +636,11 @@ hr {
 
 				h3 {
 					margin-top: 0;
+					display: none;
+
+					@include desktop {
+						display: block;
+					}
 
 					a {
 
@@ -694,6 +715,12 @@ hr {
 				}
 
 				h3 {
+					display: none;
+
+					@include desktop {
+						display: block;
+					}
+
 					a {
 					color: #B9BED1;
 					}
@@ -722,40 +749,15 @@ hr {
 
 				}
 
+
+
 				.sponsor-vendor {
 					display: inline-block;
 					width: 10em;
 
-					.sponsor-vendor-image {
-						height: 200px;
-						position: relative;
-
-						img {
-							position: absolute;
-							top: 0;
-							bottom: 0;
-							width: 80%;
-							left: 0;
-							right: 0;
-						}
-
-						a:hover {
-							transform: none;
-						}
+					&.sponsor-vendor-large {
+						width: 20em;
 					}
-
-					h3 {
-						margin-top: 0;
-
-						a {
-						color: #B9BED1;
-						}
-					}
-				}
-
-              .sponsor-vendor-top {
-					display: inline-block;
-					width: 20em;
 
 					.sponsor-vendor-image {
 						height: 200px;
@@ -777,14 +779,17 @@ hr {
 
 					h3 {
 						margin-top: 0;
+						display: none;
+
+						@include desktop {
+							display: block;
+						}
 
 						a {
 						color: #B9BED1;
 						}
 					}
 				}
-
-
 
 			}
 		}
@@ -810,7 +815,7 @@ hr {
 
 .globalFooter {
 	position: relative;
-    margin-top: 10em;
+	margin-top: 10em;
 
 	.footer-background {
 		position: absolute;
@@ -821,7 +826,7 @@ hr {
 	}
 
 	.footer-background-image {
-		transform: translateY(-8em);
+		transform: translateY(-12em);
 
 		@include desktop {
 			transform: translateY(-15em);
