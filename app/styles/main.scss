@@ -94,6 +94,7 @@ hr {
 	}
 
 	a {
+		display: block;
 		color: white;
 		text-transform: uppercase;
 		font-weight: bold;
@@ -497,6 +498,7 @@ hr {
 
 			@include desktop {
 				flex-direction: row;
+				align-items: flex-start;
 			}
 
 			.music-person {
@@ -541,8 +543,6 @@ hr {
 				.icon-plus {
 					position: relative;
 					top: 0;
-					border: 1px solid white;
-					border-radius: 100%;
 					display: block;
 					margin: auto;
 					width: 1em;
@@ -563,7 +563,7 @@ hr {
 				}
 				p {
 					text-align: left;
-					transition: all 0.3s ease-in;
+					transition: opacity 0.3s ease-in;
 					display: none;
 					visibility: hidden;
 					opacity: 0;
@@ -671,6 +671,52 @@ hr {
 		position: relative;
 		padding: 5em 0 15em;
 
+		.ticket-tabs {
+			margin: 5em auto;
+			max-width: 48em;
+			width: 100%;
+		}
+
+		.ticket-tab {
+			text-align: left;
+			border-bottom: 1px solid rgba(255,255,255,0.5);
+
+			h3 {
+				span {
+					margin-right: 2em;
+					font-size: 150%;
+				}
+
+				&:hover {
+					cursor: pointer;
+				}
+			}
+
+			.ticket-info {
+				display: none;
+
+				.btn {
+					min-width: 8em;
+					width: 8em;
+				}
+
+				p {
+					padding-left: 4em;
+				}
+			}
+
+			&.open {
+				.ticket-info {
+					display: block;
+				}
+			}
+
+			&.close {
+				.ticket-info {
+					display: none;
+				}
+			}
+		}
 	}
 }
 

@@ -1,24 +1,36 @@
 jQuery(document).ready(function($) {
-	$.fn.extend({
-    toggleText: function(a, b){
-        return this.text(this.text() == b ? a : b);
-    }
-});
 
+	// open/close the bio sections
 	$('.icon-plus').on('click', function() {
 
 		if ($(this).parent().hasClass('open')) {
+			// close everything
 			$('.music-person').removeClass('open').addClass('close');
 			$(this).html('+');
 		} else {
+			// close everything else
 			$('.music-person').removeClass('open').addClass('close');
 			$('.icon-plus').html('+');
 
+			// open the target only
 			$(this).parent().removeClass('close').addClass('open');
 			$(this).html('-');
 		}
-
 	});
+
+	// open/close the ticket accordion tabs
+	$('.ticket-tab h3').on('click', function() {
+		if($(this).parent().hasClass('open')) {
+			$('.ticket-tab').removeClass('open').addClass('close');
+			$(this).children('span').html('+')
+		} else {
+			$('.ticket-tab').removeClass('open').addClass('close');
+			$('.ticket-tab h3 span').html('+')
+
+			$(this).parent().removeClass('close').addClass('open');
+			$(this).children('span').html('-')
+		}
+	})
 
 	// Initiate AOS animatin library
 	AOS.init({
