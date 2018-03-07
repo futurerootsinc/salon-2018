@@ -682,8 +682,12 @@ hr {
 			border-bottom: 1px solid rgba(255,255,255,0.5);
 
 			h3 {
+				display: table;
+				width: 100%;
+
 				span {
-					margin-right: 2em;
+					display: table-cell;
+					width: 2em;
 					font-size: 150%;
 				}
 
@@ -701,7 +705,7 @@ hr {
 				}
 
 				p {
-					padding-left: 4em;
+					padding-left: 3.5em;
 				}
 			}
 

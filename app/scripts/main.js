@@ -1,7 +1,7 @@
 jQuery(document).ready(function($) {
 
 	// open/close the bio sections
-	$('.icon-plus').on('click', function() {
+	$('.music-person .icon-plus').on('click', function() {
 
 		if ($(this).parent().hasClass('open')) {
 			// close everything
@@ -10,7 +10,7 @@ jQuery(document).ready(function($) {
 		} else {
 			// close everything else
 			$('.music-person').removeClass('open').addClass('close');
-			$('.icon-plus').html('+');
+			$('.music-person .icon-plus').html('+');
 
 			// open the target only
 			$(this).parent().removeClass('close').addClass('open');
