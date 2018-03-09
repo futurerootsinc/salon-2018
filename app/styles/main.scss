@@ -626,6 +626,12 @@ hr {
 				display: inline-block;
 				width: 10em;
 
+				.icon {
+					img {
+						max-width: 40px;
+					}
+				}
+
 				.food-vendor-image {
 					height: 200px;
 					position: relative;
