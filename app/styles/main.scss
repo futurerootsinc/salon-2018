@@ -10,6 +10,12 @@ $tablet-width: 768px;
   }
 }
 
+// Variables
+$primary-color: #444444;
+$secondary-color: #EEC5A8;
+$primary-blue: #3b55e6;
+
+
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito:300,400,400i,800');
 // General
@@ -20,8 +26,8 @@ $tablet-width: 768px;
 }
 html, body {
 	margin: 0;
-	background: #fff;
-	color: #fff;
+	background: white;
+	color: white;
 	font-size: 16px;
 	font-family: 'Nunito', sans-serif;
 	font-weight: normal;
@@ -82,7 +88,7 @@ hr {
 	min-width: 10em;
 	max-width: 12em;
 	height: 40px;
-	background-color: #EEC5A8;
+	background-color: $secondary-color;
 	line-height: 40px;
 	text-align: center;
 	margin: 1em auto;
@@ -229,7 +235,7 @@ hr {
 	color: white;
 
 	.hero-overlay {
-		background: linear-gradient(to top, #3b55e6 0%, hsla(231, 77%, 57%, 0.95) 40%, rgba(238, 197, 168, 0.85) 100%);
+		background: linear-gradient(to top, $primary-blue 0%, hsla(231, 77%, 57%, 0.95) 40%, rgba(238, 197, 168, 0.85) 100%);
 		z-index: 0;
 	}
 
@@ -296,7 +302,7 @@ hr {
 	.about-background {
 		position: absolute;
 		top: 0;
-		background: linear-gradient(#3B55E6 0%,#3B55E6 20%, #EEC5A8 100%);
+		background: linear-gradient($primary-blue 0%,$primary-blue 20%, $secondary-color 100%);
 		width: 100%;
 		height: 100%;
 		overflow: hidden;
@@ -322,15 +328,6 @@ hr {
 
 // Speaker Section
 .speaker {
-
-	hr {
-		border-color: #3B55E6;
-		margin: 2em auto 0;
-
-		@include desktop {
-			margin: auto;
-		}
-	}
 
 	.background {
 		z-index: 0;
@@ -425,7 +422,7 @@ hr {
 
 			.speaker-content {
 				text-align: center;
-				color: #3B55E6;
+				color: #444;
 
 				@include desktop {
 					text-align: left;
@@ -438,18 +435,18 @@ hr {
 					text-transform: uppercase;
 
 					a {
-						color: #3B55E6;
+						color: $primary-color;
 					}
 				}
 
 				h3 {
 					margin-top: 0;
-					color: #B9BED1;
+					color: #888888;
 					text-transform: uppercase;
 					font-weight: normal;
 
 					a {
-						color: #3B55E6;
+						color: $primary-color;
 					}
 				}
 
@@ -510,6 +507,7 @@ hr {
 			flex-direction: column;
 			justify-content: center;
 			align-items: center;
+			flex-wrap: wrap;
 			transition: all 0.15s ease-in;
 
 			@include desktop {
@@ -518,8 +516,8 @@ hr {
 			}
 
 			.music-person {
-				margin-bottom: 2em;
-				width: 20em;
+				margin-bottom: 4em;
+				width: 15em;
 
 				.music-person-image {
 					position: relative;
@@ -589,11 +587,12 @@ hr {
 				}
 
 				p {
-					text-align: left;
+					text-align: justify;
 					transition: opacity 0.15s ease-in;
 					display: none;
 					visibility: hidden;
 					opacity: 0;
+					font-size: 90%;
 				}
 
 				&.open {
@@ -627,7 +626,7 @@ hr {
 		}
 
 		h2 {
-			color: #3B55E6;
+			color: $primary-color;
 		}
 
 		.row {
@@ -650,8 +649,10 @@ hr {
 				}
 
 				.food-vendor-image {
-					height: 200px;
 					position: relative;
+					margin: auto;
+					height: 8em;
+					width: 8em;
 
 					img {
 						position: absolute;
@@ -750,6 +751,12 @@ hr {
 				}
 			}
 		}
+
+		p {
+			a {
+				text-decoration: underline dotted white;
+			}
+		}
 	}
 }
 
@@ -759,8 +766,12 @@ hr {
 	.sponsors-inner {
 		padding: 5em 0 10em;
 
-		h1, h2 {
-			color: #3B55E6;
+		h1 {
+			color: $primary-blue;
+		}
+
+		h2 {
+			color: $primary-color;
 		}
 
 		.sponsors-block {
@@ -845,6 +856,10 @@ hr {
 
 			h2 {
 				color: white;
+			}
+
+			h3 {
+				font-weight: normal;
 			}
 		}
 	}
